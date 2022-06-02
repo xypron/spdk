@@ -1,0 +1,36 @@
+From 6be250505c9b04dc7416a583c226433ee72d78a1 Mon Sep 17 00:00:00 2001
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Date: Thu, 2 Jun 2022 13:46:28 +0200
+Subject: [PATCH 1/1] barrier: RISC-V memory barriers
+
+Introduce memory barriers for RISC-V.
+
+Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+---
+ include/spdk/barrier.h | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/include/spdk/barrier.h b/include/spdk/barrier.h
+index eb1992ba2..5b13381ac 100644
+--- a/include/spdk/barrier.h
++++ b/include/spdk/barrier.h
+@@ -103,6 +103,16 @@ extern "C" {
+ #endif
+ #define _spdk_ivdt_dcache(pdata)
+ 
++#elif defined(__riscv)
++
++#define _spdk_rmb()	__asm__ __volatile__("fence ir, ir" ::: "memory")
++#define _spdk_wmb()	__asm__ __volatile__("fence ow, ow" ::: "memory")
++#define _spdk_mb()	__asm__ __volatile__("fence iorw, iorw" ::: "memory")
++#define _spdk_smp_rmb()	__asm__ __volatile__("fence r, r" ::: "memory")
++#define _spdk_smp_wmb()	__asm__ __volatile__("fence w, w" ::: "memory")
++#define _spdk_smp_mb()	__asm__ __volatile__("fence rw, rw" ::: "memory")
++#define _spdk_ivdt_dcache(pdata)
++
+ #else
+ 
+ #define _spdk_rmb()
+-- 
+2.36.1
+
