@@ -1,0 +1,4 @@
+usr/include/spdk
+usr/lib/*.a usr/lib/@DEB_HOST_MULTIARCH@/
+usr/lib/*.so usr/lib/@DEB_HOST_MULTIARCH@/
+usr/lib/pkgconfig/*.pc usr/share/pkgconfig/

@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+
+DEB_INST := $(CURDIR)/debian/tmp/
+
+export DEB_CFLAGS_MAINT_APPEND := ${shell pkg-config libdpdk --cflags}
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	./configure --with-dpdk
+	$(MAKE) clean
+
+override_dh_auto_configure:
+	./configure --prefix=/usr --with-dpdk --with-rdma --with-shared
+
+debian/%.install: debian/%.install.in
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' $< > $@
+
+override_dh_auto_install:
+	$(MAKE) install DESTDIR=$(DEB_INST)/
+	find $(DEB_INST)/usr/lib/ -name '*.so.*' -type f -exec chrpath {} -d \;
+	find $(DEB_INST)/usr/bin/ -type f -exec chrpath {} -d \;
+	find $(DEB_INST)/usr/lib/pkgconfig/ -name '*.pc' \
+	-exec sed -i 's/-L\S*\s//g' {} \;
+
+override_dh_install: \
+	debian/spdk.install \
+	debian/libspdk.install \
+	debian/libspdk-dev.install
+	dh_install

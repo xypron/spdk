@@ -1,0 +1,64 @@
+Source: spdk
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Priority: optional
+Build-Depends:
+ chrpath,
+ debhelper-compat (= 13),
+ dpdk-dev,
+ libaio-dev,
+ libcunit1-dev,
+ libncurses-dev,
+ librdmacm-dev,
+ pkg-config,
+ uuid-dev,
+Standards-Version: 4.6.0.1
+Homepage: https://spdk.io
+Section: libs
+Vcs-Git: https://github.com/spdk/spdk.git
+Vcs-Browser: https://github.com/spdk/spdk.git
+
+Package: spdk
+Architecture: amd64 arm64 ppc64el riscv64
+Section: libs
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: Storage Performance Development Kit (SPDK)
+ The Storage Performance Development Kit (SPDK) provides a set of tools and
+ libraries for writing high performance, scalable, user-mode storage
+ applications.
+
+Package: libspdk
+Architecture: amd64 arm64 ppc64el riscv64
+Multi-Arch: same
+Section: libs
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: Storage Performance Development Kit (SPDK)
+ The Storage Performance Development Kit (SPDK) provides a set of tools and
+ libraries for writing high performance, scalable, user-mode storage
+ applications.
+
+Package: libspdk-dev
+Architecture: amd64 arm64 ppc64el riscv64
+Multi-Arch: same
+Section: libdevel
+Depends:
+ ${misc:Depends},
+Description: Storage Performance Development Kit (SPDK)
+ The Storage Performance Development Kit (SPDK) provides a set of tools and
+ libraries for writing high performance, scalable, user-mode storage
+ applications.
+
+Package: spdk-doc
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends}
+Description: Storage Performance Development Kit (SPDK)
+ The Storage Performance Development Kit (SPDK) provides a set of tools and
+ libraries for writing high performance, scalable, user-mode storage
+ applications.
+ .
+ This package contains the documentation.
