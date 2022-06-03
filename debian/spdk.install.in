@@ -1,1 +1,2 @@
 usr/bin
+scripts/bash-completion/spdk usr/share/bash-completion/completions
