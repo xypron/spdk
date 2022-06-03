@@ -14,11 +14,19 @@ export DH_OPTIONS
 	dh $@
 
 override_dh_auto_clean:
-	./configure --with-dpdk
+	./configure --prefix=/usr \
+	--with-dpdk \
+	--with-rdma \
+	--with-shared \
+	--without-isal
 	$(MAKE) clean
 
 override_dh_auto_configure:
-	./configure --prefix=/usr --with-dpdk --with-rdma --with-shared
+	./configure --prefix=/usr \
+	--with-dpdk \
+	--with-rdma \
+	--with-shared \
+	--without-isal
 
 debian/%.install: debian/%.install.in
 	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' $< > $@
