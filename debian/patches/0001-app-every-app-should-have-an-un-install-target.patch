@@ -1,0 +1,150 @@
+From 7e0c7f1636e98a7b2a98f517e8517b2ebd51ccf4 Mon Sep 17 00:00:00 2001
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Date: Fri, 3 Jun 2022 15:10:35 +0200
+Subject: [PATCH 1/1] app: every app should have an (un)install target
+
+make install should install all apps.
+
+Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Change-Id: I66c2f4536cb9f4c5bae1895066be2836038c0672
+---
+ app/iscsi_tgt/Makefile    | 6 ++++++
+ app/iscsi_top/Makefile    | 6 ++++++
+ app/nvmf_tgt/Makefile     | 6 ++++++
+ app/spdk_dd/Makefile      | 6 ++++++
+ app/spdk_lspci/Makefile   | 6 ++++++
+ app/spdk_top/Makefile     | 6 ++++++
+ app/trace/Makefile        | 6 ++++++
+ app/trace_record/Makefile | 6 ++++++
+ app/vhost/Makefile        | 6 ++++++
+ 9 files changed, 54 insertions(+)
+
+diff --git a/app/iscsi_tgt/Makefile b/app/iscsi_tgt/Makefile
+index f97e1cfa7..7e6c62ef7 100644
+--- a/app/iscsi_tgt/Makefile
++++ b/app/iscsi_tgt/Makefile
+@@ -54,3 +54,9 @@ SPDK_LIB_LIST += event_nbd
+ endif
+ 
+ include $(SPDK_ROOT_DIR)/mk/spdk.app.mk
++
++install: $(APP)
++	$(INSTALL_APP)
++
++uninstall:
++	$(UNINSTALL_APP)
+diff --git a/app/iscsi_top/Makefile b/app/iscsi_top/Makefile
+index 6dd6d94d9..5b72b9f2d 100644
+--- a/app/iscsi_top/Makefile
++++ b/app/iscsi_top/Makefile
+@@ -44,3 +44,9 @@ CFLAGS += -I$(SPDK_ROOT_DIR)/lib
+ C_SRCS := iscsi_top.c
+ 
+ include $(SPDK_ROOT_DIR)/mk/spdk.app.mk
++
++install: $(APP)
++	$(INSTALL_APP)
++
++uninstall:
++	$(UNINSTALL_APP)
+diff --git a/app/nvmf_tgt/Makefile b/app/nvmf_tgt/Makefile
+index 282f0fe7e..c3c24fc80 100644
+--- a/app/nvmf_tgt/Makefile
++++ b/app/nvmf_tgt/Makefile
+@@ -50,3 +50,9 @@ SPDK_LIB_LIST += event_nbd
+ endif
+ 
+ include $(SPDK_ROOT_DIR)/mk/spdk.app.mk
++
++install: $(APP)
++	$(INSTALL_APP)
++
++uninstall:
++	$(UNINSTALL_APP)
+diff --git a/app/spdk_dd/Makefile b/app/spdk_dd/Makefile
+index e302c12f5..ff7159411 100644
+--- a/app/spdk_dd/Makefile
++++ b/app/spdk_dd/Makefile
+@@ -42,3 +42,9 @@ C_SRCS := spdk_dd.c
+ SPDK_LIB_LIST = $(ALL_MODULES_LIST) event event_bdev
+ 
+ include $(SPDK_ROOT_DIR)/mk/spdk.app.mk
++
++install: $(APP)
++	$(INSTALL_APP)
++
++uninstall:
++	$(UNINSTALL_APP)
+diff --git a/app/spdk_lspci/Makefile b/app/spdk_lspci/Makefile
+index 5efb95fdc..8f99e9bf9 100644
+--- a/app/spdk_lspci/Makefile
++++ b/app/spdk_lspci/Makefile
+@@ -42,3 +42,9 @@ C_SRCS := spdk_lspci.c
+ SPDK_LIB_LIST = $(SOCK_MODULES_LIST) nvme vmd
+ 
+ include $(SPDK_ROOT_DIR)/mk/spdk.app.mk
++
++install: $(APP)
++	$(INSTALL_APP)
++
++uninstall:
++	$(UNINSTALL_APP)
+diff --git a/app/spdk_top/Makefile b/app/spdk_top/Makefile
+index c1f984680..16b0b14dd 100644
+--- a/app/spdk_top/Makefile
++++ b/app/spdk_top/Makefile
+@@ -42,3 +42,9 @@ SPDK_LIB_LIST = rpc
+ LIBS=-lpanel -lmenu -lncurses
+ 
+ include $(SPDK_ROOT_DIR)/mk/spdk.app.mk
++
++install: $(APP)
++	$(INSTALL_APP)
++
++uninstall:
++	$(UNINSTALL_APP)
+diff --git a/app/trace/Makefile b/app/trace/Makefile
+index 6c0736319..b60984795 100644
+--- a/app/trace/Makefile
++++ b/app/trace/Makefile
+@@ -43,3 +43,9 @@ SPDK_LIB_LIST += json trace_parser
+ CXX_SRCS := trace.cpp
+ 
+ include $(SPDK_ROOT_DIR)/mk/spdk.app_cxx.mk
++
++install: $(APP)
++	$(INSTALL_APP)
++
++uninstall:
++	$(UNINSTALL_APP)
+diff --git a/app/trace_record/Makefile b/app/trace_record/Makefile
+index a198b0e72..3ddeab9a9 100644
+--- a/app/trace_record/Makefile
++++ b/app/trace_record/Makefile
+@@ -41,3 +41,9 @@ APP = spdk_trace_record
+ C_SRCS := trace_record.c
+ 
+ include $(SPDK_ROOT_DIR)/mk/spdk.app.mk
++
++install: $(APP)
++	$(INSTALL_APP)
++
++uninstall:
++	$(UNINSTALL_APP)
+diff --git a/app/vhost/Makefile b/app/vhost/Makefile
+index e6b6c2def..9ad8ba8a2 100644
+--- a/app/vhost/Makefile
++++ b/app/vhost/Makefile
+@@ -46,3 +46,9 @@ SPDK_LIB_LIST += env_dpdk_rpc
+ endif
+ 
+ include $(SPDK_ROOT_DIR)/mk/spdk.app.mk
++
++install: $(APP)
++	$(INSTALL_APP)
++
++uninstall:
++	$(UNINSTALL_APP)
+-- 
+2.36.1
+

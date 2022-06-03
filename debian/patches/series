@@ -1,2 +1,3 @@
 0001-barrier-RISC-V-memory-barriers.patch
 0001-nvme-pcie-memory-barrier-for-RISC-V.patch
+0001-app-every-app-should-have-an-un-install-target.patch
