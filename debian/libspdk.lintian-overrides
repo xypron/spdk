@@ -1,6 +1,0 @@
-# Not all libraries are linked against libc (but their dependencies are)
-libspdk: library-not-linked-against-libc
-# Keep all related libraries in one package
-libspdk: package-name-doesnt-match-sonames libspdk-*
-# This unit test library has no dependencies
-libspdk: shared-library-lacks-prerequisites usr/lib/*/libspdk_ut_mock.so*

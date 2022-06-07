@@ -40,6 +40,6 @@ override_dh_auto_install:
 
 override_dh_install: \
 	debian/spdk.install \
-	debian/libspdk.install \
+	debian/libspdk22.install \
 	debian/libspdk-dev.install
 	dh_install
