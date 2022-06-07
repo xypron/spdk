@@ -1,4 +1,4 @@
-From 931066a0af1e49ea1800ed1b3842b189998f5b95 Mon Sep 17 00:00:00 2001
+From 72b5626d3351666e0f14025dce76b48c554deb5c Mon Sep 17 00:00:00 2001
 From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
 Date: Thu, 2 Jun 2022 14:58:44 +0200
 Subject: [PATCH 1/1] nvme/pcie: memory barrier for RISC-V
@@ -7,6 +7,13 @@ Play it safe and add the same memory barrier in
 nvme_pcie_qpair_process_completions() as for ppc64.
 
 Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Change-Id: I7079b4769d30106387ef4549495a72b7fea6a77a
+Reviewed-on: https://review.spdk.io/gerrit/c/spdk/spdk/+/12879
+Community-CI: Broadcom CI <spdk-ci.pdl@broadcom.com>
+Community-CI: Mellanox Build Bot
+Tested-by: SPDK CI Jenkins <sys_sgci@intel.com>
+Reviewed-by: Jim Harris <james.r.harris@intel.com>
+Reviewed-by: Aleksey Marchuk <alexeymar@nvidia.com>
 ---
  lib/nvme/nvme_pcie_common.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

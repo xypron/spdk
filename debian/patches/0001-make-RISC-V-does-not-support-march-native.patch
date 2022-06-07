@@ -1,4 +1,4 @@
-From 0710ea06a58ce803ae684319794e341346813b67 Mon Sep 17 00:00:00 2001
+From 791d72a58c12d44c6cc5a310b63bc5190e9964d0 Mon Sep 17 00:00:00 2001
 From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
 Date: Thu, 2 Jun 2022 17:47:10 +0200
 Subject: [PATCH] make: RISC-V does not support -march=native
@@ -10,6 +10,12 @@ This is preferable to specifying a safe fixed value like -march=rv64gc.
 
 Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
 Change-Id: I5e11179323b005f330be4752012285451e791205
+Reviewed-on: https://review.spdk.io/gerrit/c/spdk/spdk/+/12880
+Community-CI: Broadcom CI <spdk-ci.pdl@broadcom.com>
+Community-CI: Mellanox Build Bot
+Reviewed-by: Jim Harris <james.r.harris@intel.com>
+Reviewed-by: Aleksey Marchuk <alexeymar@nvidia.com>
+Tested-by: SPDK CI Jenkins <sys_sgci@intel.com>
 ---
  mk/spdk.common.mk | 2 ++
  1 file changed, 2 insertions(+)

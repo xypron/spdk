@@ -1,4 +1,4 @@
-From 6be250505c9b04dc7416a583c226433ee72d78a1 Mon Sep 17 00:00:00 2001
+From c1e0b73e85105db15172362dffd9e2d778f57504 Mon Sep 17 00:00:00 2001
 From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
 Date: Thu, 2 Jun 2022 13:46:28 +0200
 Subject: [PATCH 1/1] barrier: RISC-V memory barriers
@@ -6,6 +6,13 @@ Subject: [PATCH 1/1] barrier: RISC-V memory barriers
 Introduce memory barriers for RISC-V.
 
 Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Change-Id: I6761c2b6ddc28a856cac1e1a67e0b0fa0e0ab3a0
+Reviewed-on: https://review.spdk.io/gerrit/c/spdk/spdk/+/12878
+Community-CI: Broadcom CI <spdk-ci.pdl@broadcom.com>
+Community-CI: Mellanox Build Bot
+Reviewed-by: Jim Harris <james.r.harris@intel.com>
+Reviewed-by: Aleksey Marchuk <alexeymar@nvidia.com>
+Tested-by: SPDK CI Jenkins <sys_sgci@intel.com>
 ---
  include/spdk/barrier.h | 10 ++++++++++
  1 file changed, 10 insertions(+)
