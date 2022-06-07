@@ -1,2 +1,6 @@
 # Upstream does no supply man-pages
 spdk: no-manual-page
+# The installed Python scripts are in /usr/share/
+spdk: python3-script-but-no-python3-dep
+# Ignore false positives
+spdk: shell-script-fails-syntax-check
