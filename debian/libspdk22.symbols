@@ -1301,9 +1301,9 @@ libspdk_util.so.4.1 libspdk22 #MINVER#
  spdk_strsepq@Base 22.01.1
  spdk_strtol@Base 22.01.1
  spdk_strtoll@Base 22.01.1
- spdk_u32log2.resolver@Base 22.01.1
+ (arch=amd64 i386)spdk_u32log2.resolver@Base 22.01.1
  spdk_u32log2@Base 22.01.1
- spdk_u64log2.resolver@Base 22.01.1
+ (arch=amd64 i386)spdk_u64log2.resolver@Base 22.01.1
  spdk_u64log2@Base 22.01.1
  spdk_uuid_compare@Base 22.01.1
  spdk_uuid_copy@Base 22.01.1
