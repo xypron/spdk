@@ -1,4 +1,4 @@
-spdk (22.01.1-0ubuntu1~ppa11) kinetic; urgency=medium
+spdk (22.01.1-0ubuntu1~ppa12) kinetic; urgency=medium
 
   * Initial release
   * Add RISC-V patches

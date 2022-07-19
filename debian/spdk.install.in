@@ -1,3 +1,4 @@
 usr/bin
 scripts/* usr/share/spdk/scripts
 scripts/bash-completion/spdk usr/share/bash-completion/completions
+include/spdk/pci_ids.h usr/share/spdk/include/spdk
