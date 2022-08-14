@@ -1,0 +1,30 @@
+From 5f67160730a713ddf34fb19794a472c07f381066 Mon Sep 17 00:00:00 2001
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Date: Sun, 14 Aug 2022 18:50:06 +0200
+Subject: [PATCH] iscsi: remove static from arc4random()
+
+If include bsd/stdlib.h is installed, defining arc4random() as static leads
+to a build error.
+
+Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Change-Id: I153bc49e520d006c32bc709e94f8611b72005b8c
+---
+ lib/iscsi/iscsi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/iscsi/iscsi.c b/lib/iscsi/iscsi.c
+index 00b1d62e2..c5a0ee8ae 100644
+--- a/lib/iscsi/iscsi.c
++++ b/lib/iscsi/iscsi.c
+@@ -100,7 +100,7 @@ srandomdev(void)
+ #ifndef HAVE_ARC4RANDOM
+ static int g_arc4random_initialized = 0;
+ 
+-static uint32_t
++uint32_t
+ arc4random(void)
+ {
+ 	uint32_t r;
+-- 
+2.36.1
+
