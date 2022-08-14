@@ -1,6 +1,6 @@
-spdk (22.01.1-0ubuntu1~ppa12) kinetic; urgency=medium
+spdk (22.01.1-0ubuntu1~ppa17) kinetic; urgency=medium
 
   * Initial release
   * Add RISC-V patches
 
- -- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>  Wed, 08 Jun 2022 18:19:23 +0200
+ -- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>  Sun, 14 Aug 2022 18:54:20 +0200
